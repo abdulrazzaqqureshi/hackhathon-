@@ -1,0 +1,146 @@
+import 'package:assigemenet/dashboard.dart';
+import 'package:assigemenet/main.dart';
+import 'package:flutter/material.dart';
+import 'home.dart';
+import 'package:assigemenet/drawer.dart';
+import 'cart.dart';
+import 'contact.dart';
+
+var indexClicked = 0;
+
+class data extends StatefulWidget {
+  const data({Key? key}) : super(key: key);
+
+  @override
+  _dataState createState() => _dataState();
+}
+
+class _dataState extends State<data> {
+  final pages = [
+    Center(
+      child: Text('logout'),
+    ),
+    Center(
+      child: Text('Cart'),
+    ),
+    Center(
+      child: Text('Homepage'),
+    ),
+    Center(
+      child: Text('About us'),
+    ),
+    Center(
+      child: Text('contact'),
+    ),
+    Center(
+      child: Text('info'),
+    ),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('login'),
+        backgroundColor: Colors.pinkAccent,
+      ),
+      drawer: Drawer(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                        'https://cdna3.zoeysite.com/Adzpo594RQGDpLcjBynL1z/cache=expiry:31536000/resize=fit:max,width:1200//auto_image/compress/https://s3.amazonaws.com/zcom-media/sites/a0i0L00000TM7fPQAT/media/catalog/product/1/0/103-172-red-45-degree-view.jpg')),
+              ),
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: const [
+                  SizedBox(
+                    height: 20,
+                  ),
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        'https://img.freepik.com/free-photo/isolated-black-t-shirt-model-front-view_125540-1073.jpg?size=626&ext=jpg'),
+                    radius: 30,
+                  ),
+                  SizedBox(
+                    height: 3,
+                  ),
+                  Text(
+                    'Logout',
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 2,
+                  ),
+                  Text(
+                    'Cart',
+                    style: TextStyle(
+                        fontSize: 10,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.all(0),
+                children: [
+                  ListTile(),
+                  ListTile(
+                    leading: Icon(Icons.logout),
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => cart()));
+                    },
+                    title: Text('Logout'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.shopping_cart),
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => cart()));
+                    },
+                    title: Text('Cart'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.home),
+                    onTap: () {},
+                    title: Text('Aboutus'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.call),
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => cart()));
+                    },
+                    title: Text('Contact us'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.home_filled),
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => dashboard()));
+                    },
+                    title: Text('Homepage'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.inbox),
+                    onTap: () {},
+                    title: Text('info'),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

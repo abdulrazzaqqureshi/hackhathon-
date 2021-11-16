@@ -1,0 +1,131 @@
+import 'package:flutter/material.dart';
+
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: NetworkImage(
+                    'https://images.unsplash.com/photo-1580551881592-a5c0f309e91f?ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OHw1NzM3MjJ8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60'),
+                fit: BoxFit.fill)),
+        child: Column(
+          children: [
+            AppBar(
+              title: Center(
+                  child: Text(
+                'contact us',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.normal,
+                ),
+              )),
+              backgroundColor: Colors.blueAccent,
+              actions: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Home()));
+                    },
+                    icon: Icon(Icons.arrow_back_ios)),
+              ],
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 90,
+                  backgroundImage: NetworkImage(
+                      'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dGVsZXBob25lfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60'),
+                ) // )
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              width: 200,
+              height: 40,
+              child: TextField(
+                decoration: InputDecoration(
+                    fillColor: Colors.red[100],
+                    filled: true,
+                    hintText: 'telephone no',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20))),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+              width: 200,
+              height: 40,
+              child: TextField(
+                decoration: InputDecoration(
+                    fillColor: Colors.red[100],
+                    filled: true,
+                    hintText: 'name',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20))),
+              ),
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Home()));
+                    },
+                    style: ElevatedButton.styleFrom(primary: Colors.lightBlue),
+                    child: Text('contact us')),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(9.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.photo),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  Icon(Icons.phone_in_talk),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  Icon(Icons.video_call),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('telephone no'),
+                  style: ElevatedButton.styleFrom(primary: Colors.pink),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

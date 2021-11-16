@@ -1,0 +1,21 @@
+// ignore_for_file: unused_import
+
+import 'package:assigemenet/home.dart';
+import 'package:flutter/material.dart';
+import 'drawer.dart';
+import 'cart.dart';
+
+void main() => runApp(login());
+
+class login extends StatelessWidget {
+  const login({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Home(),
+    );
+  }
+}
+
